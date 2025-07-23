@@ -1,0 +1,87 @@
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  XCODE_VERSION: "15.2"
+  IOS_DEPLOYMENT_TARGET: "15.0"
+
+# Note: iOS builds require macOS runners with Xcode
+# This pipeline assumes availability of macOS GitLab runners
+
+code_quality:
+  stage: test
+  script:
+    - swiftlint lint --reporter junit > swiftlint-results.xml || true
+  artifacts:
+    reports:
+      junit: swiftlint-results.xml
+  tags:
+    - macos
+
+unit_tests:
+  stage: test
+  script:
+    - xcodebuild test 
+        -workspace RiggerConnect.xcworkspace 
+        -scheme RiggerConnect 
+        -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2'
+        -resultBundlePath TestResults.xcresult
+  artifacts:
+    paths:
+      - TestResults.xcresult
+    reports:
+      junit: TestResults.xcresult/*/TestSummaries.junit
+  tags:
+    - macos
+
+build_debug:
+  stage: build
+  script:
+    - xcodebuild archive 
+        -workspace RiggerConnect.xcworkspace 
+        -scheme RiggerConnect 
+        -configuration Debug 
+        -archivePath RiggerConnect-Debug.xcarchive
+    - xcodebuild -exportArchive 
+        -archivePath RiggerConnect-Debug.xcarchive 
+        -exportPath DebugBuild 
+        -exportOptionsPlist ExportOptions-Debug.plist
+  artifacts:
+    paths:
+      - DebugBuild/
+    expire_in: 1 week
+  tags:
+    - macos
+
+build_release:
+  stage: build
+  script:
+    - xcodebuild archive 
+        -workspace RiggerConnect.xcworkspace 
+        -scheme RiggerConnect 
+        -configuration Release 
+        -archivePath RiggerConnect-Release.xcarchive
+    - xcodebuild -exportArchive 
+        -archivePath RiggerConnect-Release.xcarchive 
+        -exportPath ReleaseBuild 
+        -exportOptionsPlist ExportOptions-Release.plist
+  artifacts:
+    paths:
+      - ReleaseBuild/
+    expire_in: 1 month
+  only:
+    - main
+  tags:
+    - macos
+
+fastlane_deploy:
+  stage: deploy
+  script:
+    - bundle install
+    - fastlane ios beta
+  only:
+    - main
+  tags:
+    - macos
