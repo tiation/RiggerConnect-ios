@@ -2,6 +2,30 @@
 
 🏗️ **A ChaseWhiteRabbit NGO Initiative**
 
+## 📍 Repository Location & Structure
+
+**Current Location**: `/Users/tiaastor/Github/tiation-repos/RiggerConnect-ios/`
+
+This repository is part of the **Tiation Enterprise Repository Structure**, specifically designed to house **ChaseWhiteRabbit NGO's** technology initiatives following enterprise-grade development practices.
+
+### 🏗️ Enterprise Ecosystem
+- **Repository Collection**: [Enterprise Repository Index](../ENTERPRISE_REPOSITORY_INDEX.md)
+- **Web Platform**: [RiggerConnect-web](../RiggerConnect-web/)
+- **Android Companion**: [RiggerConnect-android](../RiggerConnect-android/)
+- **Backend Services**: [RiggerBackend](../RiggerBackend/)
+- **Shared Libraries**: [RiggerShared](../RiggerShared/)
+- **Operations Hub**: [RiggerHub-ios](../RiggerHub-ios/), [RiggerHub-web](../RiggerHub-web/)
+
+### 🌟 NGO Integration
+As a **ChaseWhiteRabbit NGO Initiative**, this project adheres to:
+- ✅ **Enterprise-grade development practices**
+- ✅ **Ethical technology standards**
+- ✅ **Worker empowerment focus**
+- ✅ **DevOps best practices with CI/CD**
+- ✅ **Open development transparency**
+
+## 🎯 Application Overview
+
 RiggerConnect iOS is an enterprise-grade mobile application designed to revolutionize networking and career development for riggers in the construction, oil & gas, and industrial sectors. This native iOS app provides professional riggers with powerful tools for networking, skill development, job discovery, and career advancement.
 
 ## 🎯 Project Purpose
