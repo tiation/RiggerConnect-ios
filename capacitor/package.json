@@ -1,0 +1,59 @@
+{
+  "name": "riggerconnect-ios-capacitor",
+  "version": "1.0.0",
+  "description": "RiggerConnect iOS Mobile App with Capacitor",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx vite --host",
+    "build": "npx vite build",
+    "preview": "npx vite preview --host",
+    "cap:sync": "npx cap sync",
+    "cap:run:ios": "npx cap run ios",
+    "cap:build:ios": "npm run build && npx cap copy ios && npx cap open ios",
+    "cap:add:ios": "npx cap add ios"
+  },
+  "dependencies": {
+    "@capacitor/ios": "^6.0.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/camera": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/device": "^6.0.0",
+    "@capacitor/geolocation": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor/keyboard": "^6.0.0",
+    "@capacitor/network": "^6.0.0",
+    "@capacitor/preferences": "^6.0.0",
+    "@capacitor/push-notifications": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0",
+    "@rigger/shared": "file:../../RiggerShared/rigger-shared-1.0.0.tgz",
+    "@supabase/supabase-js": "^2.52.0",
+    "framer-motion": "^12.23.6",
+    "lucide-react": "^0.525.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  },
+  "keywords": [
+    "capacitor",
+    "react",
+    "supabase",
+    "rigger",
+    "construction",
+    "mobile",
+    "ios"
+  ],
+  "author": "ChaseWhiteRabbit NGO",
+  "license": "MIT"
+}

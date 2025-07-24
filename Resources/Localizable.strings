@@ -1,0 +1,13 @@
+"app_name" = "RiggerConnect WA";
+
+/* App Description */
+"app_tagline" = "Australia's Premier Rigging Network";
+
+/* Footer & Branding */
+"footer_app_title" = "RiggerConnect WA";
+"footer_tagline" = "Western Australia's Premier Professional Rigging Network";
+"footer_ngo_title" = "Supporting ChaseWhiteRabbit NGO";
+"footer_ngo_description" = "Every connection made through RiggerConnect helps fund community initiatives and support those in need across Western Australia.";
+"footer_copyright" = "© %d RiggerConnect WA | A ChaseWhiteRabbit NGO Initiative";
+"footer_developed_by" = "Developed by Tiation | Hosted on SXC.codes enterprise infrastructure";
+"footer_enterprise_grade" = "Enterprise Grade • Ethical Technology • DevOps Ready";
