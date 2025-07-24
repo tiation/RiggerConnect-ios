@@ -9,12 +9,12 @@
 This repository is part of the **Tiation Enterprise Repository Structure**, specifically designed to house **ChaseWhiteRabbit NGO's** technology initiatives following enterprise-grade development practices.
 
 ### 🏗️ Enterprise Ecosystem
-- **Repository Collection**: [Enterprise Repository Index](../ENTERPRISE_REPOSITORY_INDEX.md)
-- **Web Platform**: [RiggerConnect-web](../RiggerConnect-web/)
-- **Android Companion**: [RiggerConnect-android](../RiggerConnect-android/)
-- **Backend Services**: [RiggerBackend](../RiggerBackend/)
-- **Shared Libraries**: [RiggerShared](../RiggerShared/)
-- **Operations Hub**: [RiggerHub-ios](../RiggerHub-ios/), [RiggerHub-web](../RiggerHub-web/)
+- **Repository Collection**: [Enterprise Repository Index](https://github.com/tiaastor/tiation-repos/blob/mahttps://github.com/tiaastor/tiation-repos/blob/main/ENTERPRISE_REPOSITORY_INDEX.md)
+- **Web Platform**: [RiggerConnect-web](https://github.com/tiaastor/RiggerConnect-web/)
+- **Android Companion**: [RiggerConnect-android](https://github.com/tiaastor/RiggerConnect-android/)
+- **Backend Services**: [RiggerBackend](https://github.com/tiaastor/RiggerBackend/)
+- **Shared Libraries**: [RiggerShared](https://github.com/tiaastor/RiggerShared/)
+- **Operations Hub**: [RiggerHub-ios](https://github.com/tiaastor/RiggerHub-ios/), [RiggerHub-web](https://github.com/tiaastor/RiggerHub-web/)
 
 ### 🌟 NGO Integration
 As a **ChaseWhiteRabbit NGO Initiative**, this project adheres to:
