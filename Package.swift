@@ -32,14 +32,6 @@ let package = Package(
         .library(
             name: "RiggerShared",
             targets: ["RiggerShared"]
-        ),
-        .executable(
-            name: "RiggerConnectApp",
-            targets: ["RiggerConnectApp"]
-        ),
-        .executable(
-            name: "RiggerHubApp",
-            targets: ["RiggerHubApp"]
         )
     ],
     dependencies: [
