@@ -36,6 +36,10 @@ let package = Package(
         .executable(
             name: "RiggerConnectApp",
             targets: ["RiggerConnectApp"]
+        ),
+        .executable(
+            name: "RiggerHubApp",
+            targets: ["RiggerHubApp"]
         )
     ],
     dependencies: [
@@ -157,6 +161,31 @@ let package = Package(
                 .product(name: "Logging", package: "swift-log")
             ],
             path: "Sources/RiggerShared",
+            resources: [
+                .process("Resources")
+            ]
+        ),
+        
+        // RiggerConnectApp - iOS App executable
+        .executableTarget(
+            name: "RiggerConnectApp",
+            dependencies: [
+                "RiggerConnect",
+                "RiggerShared",
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk"),
+                .product(name: "StripePaymentsUI", package: "stripe-ios"),
+                .product(name: "Alamofire", package: "Alamofire"),
+                .product(name: "SDWebImage", package: "SDWebImage"),
+                .product(name: "KeychainAccess", package: "KeychainAccess"),
+                .product(name: "SwiftUINavigation", package: "swiftui-navigation"),
+                .product(name: "Collections", package: "swift-collections"),
+                .product(name: "Crypto", package: "swift-crypto"),
+                .product(name: "Logging", package: "swift-log")
+            ],
+            path: "Apps/RiggerConnect",
             resources: [
                 .process("Resources")
             ]
