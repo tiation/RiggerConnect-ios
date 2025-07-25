@@ -167,6 +167,42 @@ This SaaS platform is designed to provide Jack and riggers like him with essenti
 - **Cross-Platform Consistency**: Maintains feature parity with Android and web platforms
 - **iOS Native Excellence**: Leverages native iOS capabilities for optimal performance and user experience
 
+## 🤝 Project Team & Purpose
+
+This project is part of a broader suite of repositories aimed at supporting the **transient rigging and heavy lifting industry** in Western Australia and beyond.
+
+🔗 **Related Repositories**:
+
+* [`RiggerConnect-web`](https://github.com/ChaseWhiteRabbit/RiggerConnect-web) - Professional networking platform for construction workers
+* [`RiggerConnect-android`](https://github.com/ChaseWhiteRabbit/RiggerConnect-android) - Native Android mobile networking application
+* [`RiggerConnect-ios`](https://github.com/ChaseWhiteRabbit/RiggerConnect-ios) - Native iOS mobile networking application
+* [`RiggerConnect-capacitor`](https://github.com/ChaseWhiteRabbit/RiggerConnect-capacitor) - Cross-platform mobile app built with Ionic Capacitor
+* [`RiggerHub-web`](https://github.com/ChaseWhiteRabbit/RiggerHub-web) - Operations management hub for business users
+* [`RiggerHub-android`](https://github.com/ChaseWhiteRabbit/RiggerHub-android) - Native Android operations management application
+* [`RiggerHub-ios`](https://github.com/ChaseWhiteRabbit/RiggerHub-ios) - Native iOS operations management application
+* [`RiggerShared`](https://github.com/ChaseWhiteRabbit/RiggerShared) - Shared libraries, components, and utilities
+* [`RiggerBackend`](https://github.com/ChaseWhiteRabbit/RiggerBackend) - Core backend services and APIs for the Rigger ecosystem
+
+📬 **Contact**:
+For questions, ideas, or collaboration inquiries, please reach out to:
+
+* **Jack Jonas** – [jackjonas95@gmail.com](mailto:jackjonas95@gmail.com)
+* **Tia** – [tiatheone@protonmail.com](mailto:tiatheone@protonmail.com)
+
+---
+
+### 🙌 About the Founders
+
+**Jack Jonas** is a seasoned rigger, crane operator, and heavy vehicle mechanic based in Karratha, Western Australia. His firsthand experience in the field shapes the practical backbone of this platform.
+
+**Tia** is a Swedish software developer and founder of the NGO **ChaseWhiteRabbit**, which is dedicated to building inclusive, systemic solutions to complex challenges.
+
+Together, they created this SaaS platform to:
+
+* Help connect riggers, doggers, and crane operators to real work opportunities.
+* Support better logistics, transparency, and compliance in the field.
+* Fund and sustain the good work being done by **ChaseWhiteRabbit** in disadvantaged communities.
+
 ### Cross-Platform Ecosystem Links
 
 Explore the complete Rigger ecosystem:
