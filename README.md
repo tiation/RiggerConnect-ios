@@ -87,17 +87,32 @@ As part of ChaseWhiteRabbit NGO's mission to empower blue-collar workers through
 
 ## 🚀 Technology Stack
 
-- **Language**: Swift 5.9+
-- **Framework**: UIKit with SwiftUI integration
+### Core Platform
+- **Language**: Swift 5.9 (Pinned)
+- **Framework**: SwiftUI + UIKit integration
 - **Architecture**: MVVM with Combine framework
-- **Minimum iOS**: 15.0
-- **Target iOS**: 17.0+
-- **Design System**: Custom design system with accessibility support
-- **Networking**: URLSession with async/await
-- **Authentication**: JWT tokens with Keychain storage
-- **Push Notifications**: APNs with Firebase Cloud Messaging
-- **Analytics**: Firebase Analytics
-- **CI/CD**: Xcode Cloud + Fastlane
+- **iOS SDK**: 17.5 (Target), 15.0 (Minimum)
+- **Xcode**: 15.4 (Pinned)
+- **Package Manager**: Swift Package Manager (SPM)
+
+### Dependencies (SPM)
+- **Firebase SDK**: Authentication, Firestore, Analytics, Messaging
+- **Stripe iOS**: Payment processing for recruiter fees
+- **SwiftSoup**: HTML parsing for job descriptions
+- **Alamofire**: Advanced networking capabilities
+- **SDWebImage**: Efficient image loading and caching
+- **KeychainAccess**: Secure credential storage
+- **SwiftUI Navigation**: Advanced navigation patterns
+- **Swift Collections**: Enhanced data structures
+- **Swift Crypto**: Cryptographic operations
+- **Swift Log**: Structured logging
+
+### Development Tools
+- **SwiftLint**: Code quality and style enforcement (v0.54.0)
+- **SwiftFormat**: Automated code formatting (v0.52.11)
+- **CI/CD**: GitHub Actions with enterprise compliance
+- **Testing**: XCTest with code coverage
+- **Security**: Automated vulnerability scanning
 
 ## Project Structure
 
