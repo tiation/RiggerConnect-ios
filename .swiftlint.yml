@@ -1,0 +1,156 @@
+# SwiftLint Configuration for RiggerConnect iOS
+# ChaseWhiteRabbit NGO Enterprise Standards
+
+# Pinned versions for enterprise compliance
+swiftlint_version: 0.54.0
+
+# Directories to analyze
+included:
+  - Sources
+  - RiggerConnect
+  - Components
+  - Services
+  - Screens
+  - src
+
+# Directories/files to ignore
+excluded:
+  - Carthage
+  - Pods
+  - DerivedData
+  - .build
+  - build
+  - Package.swift
+  - "**/Generated"
+  - "**/*.generated.swift"
+  - Tests/LinuxMain.swift
+  - Packages
+  - .git
+
+# Configure rules
+opt_in_rules:
+  - array_init
+  - attributes
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - colon
+  - comma
+  - conditional_returns_on_newline
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
+  - contains_over_first_not_nil
+  - contains_over_range_nil_comparison
+  - discouraged_object_literal
+  - empty_collection_literal
+  - empty_count
+  - empty_string
+  - enum_case_associated_values_count
+  - explicit_init
+  - extension_access_modifier
+  - fallthrough
+  - fatal_error_message
+  - file_header
+  - first_where
+  - flatmap_over_map_reduce
+  - identical_operands
+  - joined_default_parameter
+  - legacy_random
+  - let_var_whitespace
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - modifier_order
+  - nimble_operator
+  - nslocalizedstring_key
+  - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - prefer_self_type_over_type_of_self
+  - redundant_nil_coalescing
+  - redundant_type_annotation
+  - strict_fileprivate
+  - switch_case_on_newline
+  - toggle_bool
+  - trailing_closure
+  - unneeded_parentheses_in_closure_argument
+  - unused_import
+  - unused_private_declaration
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+  - yoda_condition
+
+disabled_rules:
+  - todo
+  - line_length # Handled by SwiftFormat
+  - trailing_whitespace # Handled by SwiftFormat
+
+# Rule configurations
+file_header:
+  required_pattern: |
+    \/\/
+    \/\/ .*\.swift
+    \/\/ RiggerConnect iOS
+    \/\/
+    \/\/ Created by .* on .*\.
+    \/\/ Copyright © \d{4} ChaseWhiteRabbit NGO\. All rights reserved\.
+    \/\/ Licensed under GPL v3 - see LICENSE\.md for details
+    \/\/
+
+type_body_length:
+  warning: 300
+  error: 500
+
+function_body_length:
+  warning: 60
+  error: 100
+
+function_parameter_count:
+  warning: 6
+  error: 8
+
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+
+nesting:
+  type_level:
+    warning: 3
+    error: 6
+  statement_level:
+    warning: 5
+    error: 10
+
+identifier_name:
+  min_length:
+    warning: 2
+    error: 1
+  max_length:
+    warning: 60
+    error: 80
+
+# Custom Rules for Enterprise Standards
+custom_rules:
+  rigger_connect_naming:
+    name: "RiggerConnect Naming Convention"
+    regex: "class\\s+((?!RiggerConnect|Rigger)[A-Z][a-zA-Z0-9]*Controller|Manager|Service)"
+    message: "Classes should use RiggerConnect prefix for consistency"
+    severity: warning
+
+  no_hardcoded_strings:
+    name: "No Hardcoded Strings"
+    regex: "\"[^\"]{10,}\""
+    message: "Long strings should be localized"
+    severity: warning
+
+  proper_access_control:
+    name: "Proper Access Control"
+    regex: "^\\s*(var|let|func)\\s+[a-zA-Z]"
+    message: "Consider explicit access control (private, internal, public)"
+    severity: warning
+
+# Reporter configuration
+reporter: "xcode"

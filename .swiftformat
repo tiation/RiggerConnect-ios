@@ -1,0 +1,129 @@
+# SwiftFormat Configuration for RiggerConnect iOS
+# ChaseWhiteRabbit NGO Enterprise Standards
+
+# Version pinning for enterprise consistency
+--swiftversion 5.9
+
+# Indentation and spacing
+--indent 4
+--tabwidth 4
+--xcodeindentation disabled
+--smarttabs enabled
+--indentcase false
+--indentstrings false
+
+# Line formatting
+--maxwidth 120
+--linebreaks lf
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--closingparen balanced
+--wrapreturntype if-multiline
+--wraptypealiases before-first
+
+# Import organization
+--importgrouping testable-bottom
+--testableimports false
+
+# Function definitions
+--funcattributes prev-line
+--typeattributes prev-line
+--varattributes same-line
+
+# Control flow
+--allmanbraces false
+--conditionalassignment false
+--elseposition same-line
+--guardelse auto
+
+# Spacing rules
+--ranges spaced
+--operatorfunc spaced
+--nospaceoperators ..<,...
+--spacearoundcomments true
+--spacearoundparens balanced
+--spaceinsideparens false
+--spaceinsidebraces true
+--spaceinsidebrackets false
+--spaceinsidegenerics false
+
+# Wrapping and alignment
+--voidtype void
+--wrapternary before-operators
+--wrapconditions before
+--yodaswap both
+
+# Code organization
+--markextensions always
+--extensionlength 0
+--marktypes never
+--groupedextension MARK: %c + %t
+--beforemarks ""
+--extensionacl on-declarations
+--accessorsonewline false
+--patternlet inline
+
+# Redundancy elimination
+--redundanttype infer-locals-only
+--redundantbackticks false
+--redundantparens false
+--redundantself init-only
+--selfrequired @autoclosure,@escaping
+
+# Header formatting
+--header "//\n//  {file}\n//  RiggerConnect iOS\n//\n//  Created by {author} on {created}.\n//  Copyright © {year} ChaseWhiteRabbit NGO. All rights reserved.\n//  Licensed under GPL v3 - see LICENSE.md for details\n//"
+
+# Disabled rules that conflict with project style
+--disable blankLinesAroundMark
+--disable consecutiveSpaces
+--disable duplicateImports
+--disable emptyBraces
+--disable hoistPatternLet
+--disable leadingDelimiters
+--disable numberFormatting
+--disable preferKeyPath
+--disable redundantBreak
+--disable redundantExtensionACL
+--disable redundantFileprivate  
+--disable redundantInit
+--disable redundantLet
+--disable redundantNilInit
+--disable redundantObjc
+--disable redundantPattern
+--disable redundantRawValues
+--disable redundantReturn
+--disable redundantVoidReturnType
+--disable sortedImports
+--disable sortedSwitchCases
+--disable strongOutlets
+--disable trailingCommas
+--disable unusedArguments
+--disable wrap
+--disable wrapArguments
+
+# Enable specific rules for enterprise standards
+--enable andOperator
+--enable anyObjectProtocol
+--enable assertionFailures
+--enable blockComments
+--enable braces
+--enable consecutiveBlankLines
+--enable elseOnSameLine
+--enable isEmpty
+--enable linebreakAtEndOfFile
+--enable modifierOrder
+--enable organizeDeclarations
+--enable preferForLoop
+--enable spaceAroundBraces
+--enable spaceAroundBrackets
+--enable spaceAroundGenerics
+--enable spaceAroundOperators
+--enable spaceInsideComments
+--enable trailingSpace
+--enable typeSugar
+--enable void
+--enable yodaSwap
+
+# File exclusions
+--exclude Pods,Carthage,DerivedData,.build,build,Generated,**/*.generated.swift,Package.swift,Packages
