@@ -24,6 +24,51 @@ As a **ChaseWhiteRabbit NGO Initiative**, this project adheres to:
 - ✅ **DevOps best practices with CI/CD**
 - ✅ **Open development transparency**
 
+## 🔗 Related Repositories
+
+### Core Platform Components
+
+| Repository | Platform | Description | GitHub SSH URL |
+|------------|----------|-------------|----------------|
+| **RiggerBackend** | API | Core backend services and APIs | `git@github.com:tiation/RiggerBackend.git` |
+| **RiggerConnect-web** | Web | Professional networking platform | `git@github.com:tiation/RiggerConnect-web.git` |
+| **RiggerConnect-android** | Android | Mobile networking app | `git@github.com:tiation/RiggerConnect-android.git` |
+| **RiggerHub-web** | Web | Operations management hub | `git@github.com:tiation/RiggerHub-web.git` |
+| **RiggerHub-android** | Android | Mobile operations hub | `git@github.com:tiation/RiggerHub-android.git` |
+| **RiggerHub-ios** | iOS | Mobile operations hub | `git@github.com:tiation/RiggerHub-ios.git` |
+| **RiggerShared** | Multi-platform | Shared libraries and components | `git@github.com:tiation/RiggerShared.git` |
+
+### Enterprise Integration Architecture
+
+```mermaid
+graph TB
+    RB[RiggerBackend<br/>Core API Services] --> RCW[RiggerConnect-web]
+    RB --> RCA[RiggerConnect-android]
+    RB --> RCI[RiggerConnect-ios]
+    RB --> RHW[RiggerHub-web]
+    RB --> RHA[RiggerHub-android]
+    RB --> RHI[RiggerHub-ios]
+    RS[RiggerShared<br/>Common Libraries] --> RCW
+    RS --> RCA
+    RS --> RCI
+    RS --> RHW
+    RS --> RHA
+    RS --> RHI
+    
+    style RCI fill:#00FFFF,color:#000
+    style RB fill:#FF00FF,color:#000
+    style RS fill:#00FF00,color:#000
+```
+
+### ChaseWhiteRabbit NGO License Framework
+
+All repositories in the Rigger ecosystem are licensed under **GPL v3**, ensuring:
+- ✅ **Open Source Transparency**: Complete code visibility and community auditing
+- ✅ **Ethical Technology Standards**: Algorithmic fairness and bias prevention
+- ✅ **Worker Empowerment Focus**: Technology serving users, not corporate profits
+- ✅ **Community Ownership**: Improvements benefit the entire rigger community
+- ✅ **Corporate Responsibility**: Commercial use must remain open and accessible
+
 ## 🎯 Application Overview
 
 RiggerConnect iOS is an enterprise-grade mobile application designed to revolutionize networking and career development for riggers in the construction, oil & gas, and industrial sectors. This native iOS app provides professional riggers with powerful tools for networking, skill development, job discovery, and career advancement.
