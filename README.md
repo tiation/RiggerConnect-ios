@@ -140,10 +140,59 @@ Please follow our enterprise development standards and ensure all code meets our
 For inquiries related to the Rigger ecosystem, please contact our primary maintainers:
 
 - **Jack Jonas**: [jackjonas95@gmail.com](mailto:jackjonas95@gmail.com)
+  - **Role**: Rigger Crane Operator & Heavy Vehicle Mechanic, based in Karratha, WA
+  - **Expertise**: Practical rigging operations, safety protocols, and industry requirements
+
 - **Tia Astor**: [tiatheone@protonmail.com](mailto:tiatheone@protonmail.com)
+  - **Role**: Swedish Software Developer with ChaseWhiteRabbit NGO
+  - **Mission**: Creating ethical technology to empower blue-collar workers
 
 These maintainers oversee the development and coordination of the entire Rigger platform ecosystem, including RiggerConnect, RiggerHub, RiggerBackend, and RiggerShared repositories.
 
+### Special Mentions
+
+**Jack Jonas** brings invaluable real-world experience as a rigger crane operator and heavy vehicle mechanic operating in the demanding environment of Western Australia's mining sector. His practical insights ensure this iOS application addresses the real challenges faced by riggers who need reliable mobile tools for career management and networking in remote locations.
+
+**Tia Astor** develops this technology as part of ChaseWhiteRabbit NGO's commitment to creating ethical, worker-empowering software solutions. Her dedication to supporting valuable blue-collar professions drives the development of tools that prioritize user empowerment over corporate profit.
+
+### Project Vision
+
+This SaaS platform is designed to provide Jack and riggers like him with essential services in the transient rigging industry, while supporting Tia's humanitarian goals through ChaseWhiteRabbit NGO. Together, they're creating technology that elevates workers rather than replacing them.
+
+### Enterprise Standards & Compliance
+
+- **GPL v3 License**: Ensures all improvements remain freely accessible and ethically governed
+- **Enterprise-Grade Security**: Biometric authentication, encrypted data storage, and secure API communications
+- **CI/CD Pipeline**: Automated testing and deployment through Xcode Cloud and GitLab CI/CD
+- **Cross-Platform Consistency**: Maintains feature parity with Android and web platforms
+- **iOS Native Excellence**: Leverages native iOS capabilities for optimal performance and user experience
+
+### Cross-Platform Ecosystem Links
+
+Explore the complete Rigger ecosystem:
+
+- **Web Platforms**:
+  - 🌐 [RiggerConnect-web](../RiggerConnect-web/) - Professional networking web platform
+  - 🌐 [RiggerHub-web](../RiggerHub-web/) - Operations management hub
+
+- **Mobile Applications**:
+  - 📱 [RiggerConnect-android](../RiggerConnect-android/) - Android networking companion
+  - 📱 [RiggerHub-android](../RiggerHub-android/) - Android operations management
+  - 📱 [RiggerHub-ios](../RiggerHub-ios/) - iOS operations management
+
+- **Backend & Shared**:
+  - ⚙️ [RiggerBackend](../RiggerBackend/) - Core API services and backend infrastructure
+  - 📚 [RiggerShared](../RiggerShared/) - Shared libraries and utilities across platforms
+
+These interconnected repositories form a comprehensive ecosystem designed to serve the rigging industry across all platforms and use cases.
+
 ## License
 
-Enterprise license - Contact ChaseWhiteRabbit NGO for usage rights.
+This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
+
+### Why GPL v3?
+As an ethical NGO initiative, we believe in:
+- **Open Source Transparency**: All code visible and auditable
+- **Community Ownership**: Improvements benefit everyone
+- **Corporate Responsibility**: Commercial use must remain open
+- **Worker Protection**: Technology that can't be locked away from users
