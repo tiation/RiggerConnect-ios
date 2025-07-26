@@ -12,6 +12,8 @@ import UIKit
 import Combine
 
 // MARK: - Base Factory Protocols
+// Note: This file contains template protocols for future module implementations
+// Most classes referenced here don't exist yet and will be implemented as needed
 
 protocol ViewFactory {
     associatedtype ViewType: UIViewController
@@ -33,157 +35,30 @@ protocol ServiceFactory {
     func createService() -> ServiceType
 }
 
-// MARK: - Module-Specific Factory Protocols
+// MARK: - Basic Factory Implementation
+// Simple factory for current app structure
 
-// Auth Module
-protocol AuthViewFactory: ViewFactory {
-    func createLoginView() -> AuthLoginViewController
-    func createSignUpView() -> AuthSignUpViewController
-    func createForgotPasswordView() -> AuthForgotPasswordViewController
+class BasicAppFactory {
+    static let shared = BasicAppFactory()
+    
+    private init() {}
+    
+    // Add actual factory methods here as needed
+    func createBasicViewController() -> UIViewController {
+        return UIViewController()
+    }
 }
 
-protocol AuthViewModelFactory: ViewModelFactory {
-    func createLoginViewModel() -> AuthLoginViewModel
-    func createSignUpViewModel() -> AuthSignUpViewModel
-    func createForgotPasswordViewModel() -> AuthForgotPasswordViewModel
-}
-
-protocol AuthCoordinatorFactory: CoordinatorFactory {
-    func createAuthCoordinator(navigationController: UINavigationController) -> AuthCoordinator
-}
-
-// Business Dashboard Module
-protocol BusinessDashboardViewFactory: ViewFactory {
-    func createDashboardView() -> BusinessDashboardViewController
-    func createAnalyticsView() -> BusinessAnalyticsViewController
-    func createManagementView() -> BusinessManagementViewController
-}
-
-protocol BusinessDashboardViewModelFactory: ViewModelFactory {
-    func createDashboardViewModel() -> BusinessDashboardViewModel
-    func createAnalyticsViewModel() -> BusinessAnalyticsViewModel
-    func createManagementViewModel() -> BusinessManagementViewModel
-}
-
-protocol BusinessDashboardCoordinatorFactory: CoordinatorFactory {
-    func createBusinessDashboardCoordinator(navigationController: UINavigationController) -> BusinessDashboardCoordinator
-}
-
-// Job Post Module
-protocol JobPostViewFactory: ViewFactory {
-    func createJobPostView() -> JobPostViewController
-    func createJobListView() -> JobListViewController
-    func createJobDetailView() -> JobDetailViewController
-}
-
-protocol JobPostViewModelFactory: ViewModelFactory {
-    func createJobPostViewModel() -> JobPostViewModel
-    func createJobListViewModel() -> JobListViewModel
-    func createJobDetailViewModel() -> JobDetailViewModel
-}
-
-protocol JobPostCoordinatorFactory: CoordinatorFactory {
-    func createJobPostCoordinator(navigationController: UINavigationController) -> JobPostCoordinator
-}
-
-// Worker Profile Module
-protocol WorkerProfileViewFactory: ViewFactory {
-    func createProfileView() -> WorkerProfileViewController
-    func createEditProfileView() -> WorkerEditProfileViewController
-    func createSkillsView() -> WorkerSkillsViewController
-}
-
-protocol WorkerProfileViewModelFactory: ViewModelFactory {
-    func createProfileViewModel() -> WorkerProfileViewModel
-    func createEditProfileViewModel() -> WorkerEditProfileViewModel
-    func createSkillsViewModel() -> WorkerSkillsViewModel
-}
-
-protocol WorkerProfileCoordinatorFactory: CoordinatorFactory {
-    func createWorkerProfileCoordinator(navigationController: UINavigationController) -> WorkerProfileCoordinator
-}
-
-// Job Search Module
-protocol JobSearchViewFactory: ViewFactory {
-    func createSearchView() -> JobSearchViewController
-    func createFilterView() -> JobSearchFilterViewController
-    func createResultsView() -> JobSearchResultsViewController
-}
-
-protocol JobSearchViewModelFactory: ViewModelFactory {
-    func createSearchViewModel() -> JobSearchViewModel
-    func createFilterViewModel() -> JobSearchFilterViewModel
-    func createResultsViewModel() -> JobSearchResultsViewModel
-}
-
-protocol JobSearchCoordinatorFactory: CoordinatorFactory {
-    func createJobSearchCoordinator(navigationController: UINavigationController) -> JobSearchCoordinator
-}
-
-// Booking Module
-protocol BookingViewFactory: ViewFactory {
-    func createBookingView() -> BookingViewController
-    func createBookingHistoryView() -> BookingHistoryViewController
-    func createBookingDetailView() -> BookingDetailViewController
-}
-
-protocol BookingViewModelFactory: ViewModelFactory {
-    func createBookingViewModel() -> BookingViewModel
-    func createBookingHistoryViewModel() -> BookingHistoryViewModel
-    func createBookingDetailViewModel() -> BookingDetailViewModel
-}
-
-protocol BookingCoordinatorFactory: CoordinatorFactory {
-    func createBookingCoordinator(navigationController: UINavigationController) -> BookingCoordinator
-}
-
-// Payments Module
-protocol PaymentsViewFactory: ViewFactory {
-    func createPaymentsView() -> PaymentsViewController
-    func createPaymentMethodsView() -> PaymentMethodsViewController
-    func createTransactionHistoryView() -> TransactionHistoryViewController
-}
-
-protocol PaymentsViewModelFactory: ViewModelFactory {
-    func createPaymentsViewModel() -> PaymentsViewModel
-    func createPaymentMethodsViewModel() -> PaymentMethodsViewModel
-    func createTransactionHistoryViewModel() -> TransactionHistoryViewModel
-}
-
-protocol PaymentsCoordinatorFactory: CoordinatorFactory {
-    func createPaymentsCoordinator(navigationController: UINavigationController) -> PaymentsCoordinator
-}
-
-// Reviews Module
-protocol ReviewsViewFactory: ViewFactory {
-    func createReviewsView() -> ReviewsViewController
-    func createWriteReviewView() -> WriteReviewViewController
-    func createReviewDetailView() -> ReviewDetailViewController
-}
-
-protocol ReviewsViewModelFactory: ViewModelFactory {
-    func createReviewsViewModel() -> ReviewsViewModel
-    func createWriteReviewViewModel() -> WriteReviewViewModel
-    func createReviewDetailViewModel() -> ReviewDetailViewModel
-}
-
-protocol ReviewsCoordinatorFactory: CoordinatorFactory {
-    func createReviewsCoordinator(navigationController: UINavigationController) -> ReviewsCoordinator
-}
-
-// Settings Module
-protocol SettingsViewFactory: ViewFactory {
-    func createSettingsView() -> SettingsViewController
-    func createAccountSettingsView() -> AccountSettingsViewController
-    func createNotificationSettingsView() -> NotificationSettingsViewController
-}
-
-protocol SettingsViewModelFactory: ViewModelFactory {
-    func createSettingsViewModel() -> SettingsViewModel
-    func createAccountSettingsViewModel() -> AccountSettingsViewModel
-    func createNotificationSettingsViewModel() -> NotificationSettingsViewModel
-}
-
-protocol SettingsCoordinatorFactory: CoordinatorFactory {
-    func createSettingsCoordinator(navigationController: UINavigationController) -> SettingsCoordinator
-}
+// MARK: - Future Module Protocols
+// These will be implemented when the corresponding classes are created
+/*
+// Auth Module - TODO: Implement when AuthViewController classes exist
+// Business Dashboard Module - TODO: Implement when Business classes exist  
+// Job Post Module - TODO: Implement when Job classes exist
+// Worker Profile Module - TODO: Implement when Worker classes exist
+// Job Search Module - TODO: Implement when Search classes exist
+// Booking Module - TODO: Implement when Booking classes exist
+// Payments Module - TODO: Implement when Payment classes exist
+// Reviews Module - TODO: Implement when Review classes exist
+// Settings Module - TODO: Implement when Settings classes exist
+*/

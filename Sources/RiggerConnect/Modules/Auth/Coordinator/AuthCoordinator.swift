@@ -36,16 +36,7 @@ class AuthCoordinator: NSObject, AuthCoordinatorProtocol, CoordinatorDependency 
     
     // MARK: - Services
     private lazy var authService: AuthServiceProtocol = {
-        container.resolve(AuthServiceProtocol.self)
-    }()
-    
-    // MARK: - Factories
-    private lazy var authViewFactory: AuthViewFactory = {
-        container.resolve(AuthViewFactory.self)
-    }()
-    
-    private lazy var authViewModelFactory: AuthViewModelFactory = {
-        container.resolve(AuthViewModelFactory.self)
+        return MockAuthService()
     }()
     
     // MARK: - Completion Handler
@@ -66,8 +57,8 @@ class AuthCoordinator: NSObject, AuthCoordinatorProtocol, CoordinatorDependency 
     }
     
     func showLogin() {
-        let loginViewController = authViewFactory.createLoginView()
-        let loginViewModel = authViewModelFactory.createLoginViewModel()
+        let loginViewController = AuthLoginViewController()
+        let loginViewModel = AuthLoginViewModel(container: container)
         
         loginViewController.viewModel = loginViewModel
         loginViewController.coordinator = self
@@ -76,8 +67,8 @@ class AuthCoordinator: NSObject, AuthCoordinatorProtocol, CoordinatorDependency 
     }
     
     func showSignUp() {
-        let signUpViewController = authViewFactory.createSignUpView()
-        let signUpViewModel = authViewModelFactory.createSignUpViewModel()
+        let signUpViewController = AuthSignUpViewController()
+        let signUpViewModel = AuthSignUpViewModel(container: container)
         
         signUpViewController.viewModel = signUpViewModel
         signUpViewController.coordinator = self
@@ -86,8 +77,8 @@ class AuthCoordinator: NSObject, AuthCoordinatorProtocol, CoordinatorDependency 
     }
     
     func showForgotPassword() {
-        let forgotPasswordViewController = authViewFactory.createForgotPasswordView()
-        let forgotPasswordViewModel = authViewModelFactory.createForgotPasswordViewModel()
+        let forgotPasswordViewController = AuthForgotPasswordViewController()
+        let forgotPasswordViewModel = AuthForgotPasswordViewModel(container: container)
         
         forgotPasswordViewController.viewModel = forgotPasswordViewModel
         forgotPasswordViewController.coordinator = self

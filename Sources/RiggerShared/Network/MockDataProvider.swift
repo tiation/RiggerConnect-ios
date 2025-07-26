@@ -91,7 +91,7 @@ public final class MockDataProvider {
             salary: 95000,
             salaryRange: SalaryRange(min: 85000, max: 105000),
             employerId: "employer1",
-            status: .active,
+            status: .open,
             createdAt: Calendar.current.date(byAdding: .day, value: -5, to: Date()) ?? Date()
         ),
         Job(
@@ -110,7 +110,7 @@ public final class MockDataProvider {
             salary: 78000,
             salaryRange: SalaryRange(min: 72000, max: 85000),
             employerId: "employer1",
-            status: .active,
+            status: .open,
             createdAt: Calendar.current.date(byAdding: .day, value: -2, to: Date()) ?? Date()
         ),
         Job(
@@ -128,7 +128,7 @@ public final class MockDataProvider {
             location: "Port Hedland, WA",
             salary: 120000,
             employerId: "employer1",
-            status: .active,
+            status: .open,
             createdAt: Calendar.current.date(byAdding: .hour, value: -6, to: Date()) ?? Date()
         )
     ]
@@ -342,10 +342,14 @@ public final class MockDataProvider {
 
 // MARK: - Mock Network Layer
 
-public final class MockNetworkLayer: NetworkLayer {
+public final class MockNetworkLayer: NetworkLayerProtocol {
     private let mockProvider = MockDataProvider.shared
     
-    public override func request<T: Codable>(
+    public init() {
+        // MockNetworkLayer doesn't need the URLSession setup
+    }
+    
+    public func request<T: Codable>(
         endpoint: APIEndpoint,
         responseType: T.Type,
         requiresAuth: Bool = true

@@ -308,9 +308,9 @@ public struct BusinessPrivacySettings: Codable, Hashable {
 }
 
 public enum ProfileVisibility: String, CaseIterable, Codable {
-    case public = "public"
+    case `public` = "public"
     case verified = "verified"
-    case private = "private"
+    case `private` = "private"
     
     public var displayName: String {
         switch self {
@@ -785,18 +785,3 @@ public enum SubscriptionStatus: String, CaseIterable, Codable {
     }
 }
 
-public enum PaymentMethod: String, CaseIterable, Codable {
-    case creditCard = "credit_card"
-    case debitCard = "debit_card"
-    case bankTransfer = "bank_transfer"
-    case paypal = "paypal"
-    
-    public var displayName: String {
-        switch self {
-        case .creditCard: return "Credit Card"
-        case .debitCard: return "Debit Card"
-        case .bankTransfer: return "Bank Transfer"
-        case .paypal: return "PayPal"
-        }
-    }
-}

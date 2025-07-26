@@ -12,7 +12,7 @@ import Combine
 
 // MARK: - Auth Models
 
-struct AuthUser: Codable, Identifiable {
+struct AuthUser: Codable, Identifiable, Equatable {
     let id: UUID
     let email: String
     let firstName: String
@@ -83,7 +83,7 @@ enum UserType: String, Codable, CaseIterable {
     }
 }
 
-enum AuthError: Error, LocalizedError {
+enum AuthError: Error, LocalizedError, Equatable {
     case invalidCredentials
     case userNotFound
     case emailAlreadyExists
@@ -120,6 +120,27 @@ enum AuthError: Error, LocalizedError {
             return "You must accept the terms and conditions to continue."
         case .passwordMismatch:
             return "Passwords do not match. Please try again."
+        }
+    }
+    
+    // MARK: - Equatable
+    static func == (lhs: AuthError, rhs: AuthError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidCredentials, .invalidCredentials),
+             (.userNotFound, .userNotFound),
+             (.emailAlreadyExists, .emailAlreadyExists),
+             (.weakPassword, .weakPassword),
+             (.invalidToken, .invalidToken),
+             (.emailNotVerified, .emailNotVerified),
+             (.accountLocked, .accountLocked),
+             (.invalidUserType, .invalidUserType),
+             (.termsNotAccepted, .termsNotAccepted),
+             (.passwordMismatch, .passwordMismatch):
+            return true
+        case (.networkError(let lhsMessage), .networkError(let rhsMessage)):
+            return lhsMessage == rhsMessage
+        default:
+            return false
         }
     }
 }

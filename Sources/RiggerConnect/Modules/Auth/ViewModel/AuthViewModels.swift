@@ -25,8 +25,9 @@ class BaseAuthViewModel: ObservableObject, ViewModelDependency {
     @Published var isFormValid = false
     
     // MARK: - Services
-    private lazy var authService: AuthServiceProtocol = {
-        container.resolve(AuthServiceProtocol.self)
+    internal lazy var authService: AuthServiceProtocol = {
+        // For now, return a mock service since AuthServiceProtocol implementation doesn't exist yet
+        return MockAuthService()
     }()
     
     // MARK: - Initialization
@@ -347,4 +348,79 @@ protocol AuthServiceProtocol {
     func refreshToken() -> AnyPublisher<AuthTokenResponse, Error>
     var currentUser: AuthUser? { get }
     var authState: CurrentValueSubject<AuthState, Never> { get }
+}
+
+// MARK: - Mock Auth Service (for development)
+
+class MockAuthService: AuthServiceProtocol {
+    var currentUser: AuthUser?
+    var authState = CurrentValueSubject<AuthState, Never>(.unauthenticated)
+    
+    func login(request: AuthLoginRequest) -> AnyPublisher<AuthTokenResponse, Error> {
+        // Simulate network delay
+        return Just(mockTokenResponse())
+            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func signUp(request: AuthSignUpRequest) -> AnyPublisher<AuthTokenResponse, Error> {
+        return Just(mockTokenResponse())
+            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func forgotPassword(request: AuthForgotPasswordRequest) -> AnyPublisher<Void, Error> {
+        return Just(())
+            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func resetPassword(request: AuthResetPasswordRequest) -> AnyPublisher<Void, Error> {
+        return Just(())
+            .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func logout() -> AnyPublisher<Void, Error> {
+        return Just(())
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.currentUser = nil
+                self?.authState.send(.unauthenticated)
+            })
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func refreshToken() -> AnyPublisher<AuthTokenResponse, Error> {
+        return Just(mockTokenResponse())
+            .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+    
+    private func mockTokenResponse() -> AuthTokenResponse {
+        let mockUser = AuthUser(
+            id: UUID(),
+            email: "demo@riggerconnect.com",
+            firstName: "Demo",
+            lastName: "User",
+            userType: .business,
+            isEmailVerified: true,
+            profileImageURL: nil,
+            createdAt: Date(),
+            updatedAt: Date()
+        )
+        
+        return AuthTokenResponse(
+            accessToken: "mock-access-token",
+            refreshToken: "mock-refresh-token",
+            expiresIn: 3600,
+            tokenType: "Bearer",
+            user: mockUser
+        )
+    }
 }

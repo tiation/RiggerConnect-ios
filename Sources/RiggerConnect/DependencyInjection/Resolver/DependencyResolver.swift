@@ -121,7 +121,7 @@ extension DependencyResolver {
     }
     
     /// Register multiple dependencies at once
-    func registerBatch(_ registrations: () -> Void) {
+    func registerBatch(_ registrations: @escaping () -> Void) {
         queue.async(flags: .barrier) {
             registrations()
         }

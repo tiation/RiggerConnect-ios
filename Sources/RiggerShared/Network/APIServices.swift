@@ -12,17 +12,17 @@ import Foundation
 // MARK: - API Service Protocol
 
 public protocol APIServiceProtocol {
-    var networkLayer: NetworkLayer { get }
+    var networkLayer: NetworkLayerProtocol { get }
     var isUsingMockData: Bool { get }
 }
 
 // MARK: - Base API Service
 
 public class BaseAPIService: APIServiceProtocol {
-    public let networkLayer: NetworkLayer
+    public let networkLayer: NetworkLayerProtocol
     public let isUsingMockData: Bool
     
-    public init(networkLayer: NetworkLayer? = nil, useMockData: Bool = false) {
+    public init(networkLayer: NetworkLayerProtocol? = nil, useMockData: Bool = false) {
         self.isUsingMockData = useMockData
         
         if useMockData {
@@ -116,7 +116,8 @@ public final class UserService: BaseAPIService {
     public func getUserProfile() async throws -> User {
         return try await networkLayer.request(
             endpoint: .getUserProfile,
-            responseType: User.self
+            responseType: User.self,
+            requiresAuth: true
         )
     }
     
@@ -138,7 +139,8 @@ public final class UserService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: User.self
+            responseType: User.self,
+            requiresAuth: true
         )
     }
 }
@@ -183,14 +185,16 @@ public final class JobService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: PaginatedResponse<Job>.self
+            responseType: PaginatedResponse<Job>.self,
+            requiresAuth: true
         )
     }
     
     public func getJob(id: String) async throws -> Job {
         return try await networkLayer.request(
             endpoint: .getJob(id: id),
-            responseType: Job.self
+            responseType: Job.self,
+            requiresAuth: true
         )
     }
     
@@ -203,7 +207,8 @@ public final class JobService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Job.self
+            responseType: Job.self,
+            requiresAuth: true
         )
     }
     
@@ -225,7 +230,8 @@ public final class JobService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Application.self
+            responseType: Application.self,
+            requiresAuth: true
         )
     }
 }
@@ -238,14 +244,16 @@ public final class ApplicationService: BaseAPIService {
     public func getUserApplications() async throws -> [Application] {
         return try await networkLayer.request(
             endpoint: .getUserApplications,
-            responseType: [Application].self
+            responseType: [Application].self,
+            requiresAuth: true
         )
     }
     
     public func getJobApplications(jobId: String) async throws -> [Application] {
         return try await networkLayer.request(
             endpoint: .getJobApplications(jobId: jobId),
-            responseType: [Application].self
+            responseType: [Application].self,
+            requiresAuth: true
         )
     }
     
@@ -262,14 +270,16 @@ public final class ApplicationService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Application.self
+            responseType: Application.self,
+            requiresAuth: true
         )
     }
     
     public func getApplicationAnalytics() async throws -> ApplicationAnalytics {
         return try await networkLayer.request(
             endpoint: APIEndpoint(path: "applications/analytics", method: .GET),
-            responseType: ApplicationAnalytics.self
+            responseType: ApplicationAnalytics.self,
+            requiresAuth: true
         )
     }
 }
@@ -312,14 +322,16 @@ public final class BookingService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: PaginatedResponse<Booking>.self
+            responseType: PaginatedResponse<Booking>.self,
+            requiresAuth: true
         )
     }
     
     public func getBooking(id: String) async throws -> Booking {
         return try await networkLayer.request(
             endpoint: APIEndpoint(path: "bookings/\(id)", method: .GET),
-            responseType: Booking.self
+            responseType: Booking.self,
+            requiresAuth: true
         )
     }
     
@@ -332,7 +344,8 @@ public final class BookingService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Booking.self
+            responseType: Booking.self,
+            requiresAuth: true
         )
     }
     
@@ -350,7 +363,8 @@ public final class BookingService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Booking.self
+            responseType: Booking.self,
+            requiresAuth: true
         )
     }
 }
@@ -392,7 +406,8 @@ public final class ReviewService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: PaginatedResponse<Review>.self
+            responseType: PaginatedResponse<Review>.self,
+            requiresAuth: true
         )
     }
     
@@ -405,7 +420,8 @@ public final class ReviewService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Review.self
+            responseType: Review.self,
+            requiresAuth: true
         )
     }
     
@@ -421,14 +437,16 @@ public final class ReviewService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Review.self
+            responseType: Review.self,
+            requiresAuth: true
         )
     }
     
     public func getReviewAnalytics(for userId: String) async throws -> ReviewAnalytics {
         return try await networkLayer.request(
             endpoint: APIEndpoint(path: "reviews/analytics/\(userId)", method: .GET),
-            responseType: ReviewAnalytics.self
+            responseType: ReviewAnalytics.self,
+            requiresAuth: true
         )
     }
     
@@ -441,7 +459,8 @@ public final class ReviewService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: ReviewResponse.self
+            responseType: ReviewResponse.self,
+            requiresAuth: true
         )
     }
 }
@@ -483,7 +502,8 @@ public final class PaymentService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: PaginatedResponse<Payment>.self
+            responseType: PaginatedResponse<Payment>.self,
+            requiresAuth: true
         )
     }
     
@@ -496,7 +516,8 @@ public final class PaymentService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Payment.self
+            responseType: Payment.self,
+            requiresAuth: true
         )
     }
     
@@ -517,14 +538,16 @@ public final class PaymentService: BaseAPIService {
         
         return try await networkLayer.request(
             endpoint: endpoint,
-            responseType: Payment.self
+            responseType: Payment.self,
+            requiresAuth: true
         )
     }
     
     public func getPaymentAnalytics() async throws -> PaymentAnalytics {
         return try await networkLayer.request(
             endpoint: APIEndpoint(path: "payments/analytics", method: .GET),
-            responseType: PaymentAnalytics.self
+            responseType: PaymentAnalytics.self,
+            requiresAuth: true
         )
     }
 }

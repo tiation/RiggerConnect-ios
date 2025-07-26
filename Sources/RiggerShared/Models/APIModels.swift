@@ -157,7 +157,7 @@ public struct Job: Codable, Identifiable, Hashable {
         salary: Double? = nil,
         salaryRange: SalaryRange? = nil,
         employerId: String,
-        status: JobStatus = .active,
+        status: JobStatus = .open,
         createdAt: Date = Date(),
         updatedAt: Date = Date()
     ) {
@@ -187,19 +187,6 @@ public struct SalaryRange: Codable, Hashable {
     }
 }
 
-public enum JobStatus: String, CaseIterable, Codable {
-    case active = "active"
-    case paused = "paused"
-    case closed = "closed"
-    
-    public var displayName: String {
-        switch self {
-        case .active: return "Active"
-        case .paused: return "Paused"
-        case .closed: return "Closed"
-        }
-    }
-}
 
 // MARK: - Authentication Models
 

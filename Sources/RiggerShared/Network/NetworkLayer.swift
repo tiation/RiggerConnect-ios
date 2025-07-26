@@ -11,7 +11,15 @@ import Foundation
 
 // MARK: - Network Layer
 
-public final class NetworkLayer {
+public protocol NetworkLayerProtocol {
+    func request<T: Codable>(
+        endpoint: APIEndpoint,
+        responseType: T.Type,
+        requiresAuth: Bool
+    ) async throws -> T
+}
+
+public final class NetworkLayer: NetworkLayerProtocol {
     public static let shared = NetworkLayer()
     
     private let session: URLSession

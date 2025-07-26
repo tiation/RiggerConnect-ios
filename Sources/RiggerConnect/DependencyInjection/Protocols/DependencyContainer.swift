@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import UIKit
 import Combine
 
 /// Core dependency injection container protocol
@@ -50,6 +51,6 @@ protocol ServiceDependency {
 
 /// ViewModel dependency protocol
 protocol ViewModelDependency {
-    var container: DependencyContainer { get }
+    var container: DependencyContainer { get set }
     var cancellables: Set<AnyCancellable> { get set }
 }

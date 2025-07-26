@@ -23,7 +23,11 @@ public class AuthenticationManager: ObservableObject {
     public init() {
         // Check if user is already signed in
         if let user = Auth.auth().currentUser {
-            self.currentUser = user
+            self.currentUser = User(
+                id: user.uid,
+                email: user.email ?? "",
+                role: .user  // Default role, can be updated later
+            )
             self.isAuthenticated = true
             logger.info("User already signed in: \(user.email ?? "unknown")")
         }
@@ -31,7 +35,13 @@ public class AuthenticationManager: ObservableObject {
         // Listen for auth state changes
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
             Task { @MainActor in
-                self?.currentUser = user
+                self?.currentUser = user.map { firebaseUser in
+                    User(
+                        id: firebaseUser.uid,
+                        email: firebaseUser.email ?? "",
+                        role: .user  // Default role, can be updated later
+                    )
+                }
                 self?.isAuthenticated = user != nil
                 if let userEmail = user?.email {
                     self?.logger.info("Auth state changed - User: \(userEmail)")
